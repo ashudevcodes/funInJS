@@ -1,0 +1,24 @@
+body { 
+  background-color: gray;
+}
+
+circle{
+   fill: #AB9144;
+   transition: r 400ms, cy 600ms;
+}
+
+#clickMe{
+   position: absolute;
+   left:50%;
+   top:50%;
+   background-color:gray;
+   border-radius:12px;
+   transform: translate(-50%,-50%) scale(2,2);
+ }
+
+#clickMe:hover circle,
+#clickMe:focus-visible circle{
+  fill:brown;
+  r:50px;
+  cy:100px;
+}
