@@ -48,18 +48,50 @@ const eventTable = [
 
 eventTable.sort((a, b) => b.onCount - a.onCount);
 
-clickMe.onmouseenter = () => {
-  timesToEnter +=1
-  for (const event of eventTable){
-	if (event.onCount <= timesToEnter) {
-	  event.action()
-	  break
-	}
+async function detectDevice() {
+  const userAgentData = navigator.userAgentData;
+  let isMobile
+
+  if (userAgentData && userAgentData.mobile) {
+	isMobile = true
+  } else {
+	isMobile = false
   }
+  return isMobile
 }
 
-clickMe.onmouseleave = () => {
-  console.log("sayonara!")
-  baaMemeAudio.currentTime = 0 
-  baaMemeAudio.play()
-}
+detectDevice().then((isMobile)=>{
+  if (isMobile) {
+	clickMe.addEventListener('click', () => clickMe.classList.toggle('active'));
+	clickMe.onmousedown = () => {
+	  timesToEnter +=1
+	  for (const event of eventTable){
+		if (event.onCount <= timesToEnter) {
+		  event.action()
+		  break
+		}
+	  }
+	}
+	clickMe.onmouseup = () => {
+	  console.log("sayonara!")
+	  baaMemeAudio.currentTime = 0 
+	  baaMemeAudio.play()
+	}
+  } else {
+	clickMe.onmouseenter = () => {
+	  timesToEnter +=1
+	  for (const event of eventTable){
+		if (event.onCount <= timesToEnter) {
+		  event.action()
+		  break
+		}
+	  }
+	}
+  }
+
+  clickMe.onmouseleave = () => {
+	console.log("sayonara!")
+	baaMemeAudio.currentTime = 0 
+	baaMemeAudio.play()
+  }
+});

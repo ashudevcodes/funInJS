@@ -17,6 +17,7 @@ circle{
  }
 
 #clickMe:hover circle,
+#clickMe.active circle,
 #clickMe:focus-visible circle{
   fill:brown;
   r:50px;
