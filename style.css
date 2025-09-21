@@ -22,3 +22,15 @@ circle{
   r:50px;
   cy:100px;
 }
+
+.small {
+  font: italic 13px sans-serif;
+}
+.heavy {
+  font: bold 30px sans-serif;
+}
+
+.Rrrrr {
+  font: italic 40px serif;
+  fill: red;
+}
