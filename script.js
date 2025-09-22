@@ -62,7 +62,6 @@ async function detectDevice() {
 
 detectDevice().then((isMobile)=>{
   if (isMobile) {
-	clickMe.addEventListener('click', () => clickMe.classList.toggle('active'));
 	clickMe.onmousedown = () => {
 	  timesToEnter +=1
 	  for (const event of eventTable){
@@ -71,11 +70,6 @@ detectDevice().then((isMobile)=>{
 		  break
 		}
 	  }
-	}
-	clickMe.onmouseup = () => {
-	  console.log("sayonara!")
-	  baaMemeAudio.currentTime = 0 
-	  baaMemeAudio.play()
 	}
   } else {
 	clickMe.onmouseenter = () => {
@@ -88,7 +82,6 @@ detectDevice().then((isMobile)=>{
 	  }
 	}
   }
-
   clickMe.onmouseleave = () => {
 	console.log("sayonara!")
 	baaMemeAudio.currentTime = 0 

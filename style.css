@@ -4,7 +4,7 @@ body {
 
 circle{
    fill: #AB9144;
-   transition: r 400ms, cy 600ms;
+   transition: r 400ms, cy 600ms, fill 600ms;
 }
 
 #clickMe{
@@ -17,7 +17,6 @@ circle{
  }
 
 #clickMe:hover circle,
-#clickMe.active circle,
 #clickMe:focus-visible circle{
   fill:brown;
   r:50px;
